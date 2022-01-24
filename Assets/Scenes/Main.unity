@@ -5886,6 +5886,7 @@ MonoBehaviour:
   indicator: {fileID: 0}
   indicatorYPos: 0
   robot: {fileID: 735662337}
+  tunnel: {fileID: 1288711645}
 --- !u!4 &718094201
 Transform:
   m_ObjectHideFlags: 0
@@ -10250,9 +10251,11 @@ MonoBehaviour:
   isTimeToTalk: 0
   indicator: {fileID: 2146700505}
   indicatorYPos: 1.72
+  coffeeBeanConsole: {fileID: 1983223525}
   tunnelExit: {fileID: 1303024534}
   UIContainer: {fileID: 301286650}
   description: {fileID: 175448386}
+  sentRobot: 0
 --- !u!58 &1288711646
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -18986,6 +18989,7 @@ MonoBehaviour:
   indicator: {fileID: 0}
   indicatorYPos: 0
   coffee_cover: {fileID: 1578285572}
+  isCoverUp: 0
 --- !u!61 &1983223526
 BoxCollider2D:
   m_ObjectHideFlags: 0

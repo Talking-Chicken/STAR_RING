@@ -4,21 +4,12 @@ using UnityEngine;
 
 public class robot_console : InteractiveObj
 {
-    // Start is called before the first frame update
     public GameObject robot;
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    [SerializeField] DeliveryTunnel tunnel;
     public override void interact()
     {
-        robot.SetActive(true);
-     
+        if (tunnel.sentRobot)
+            robot.SetActive(true);
     }
 }

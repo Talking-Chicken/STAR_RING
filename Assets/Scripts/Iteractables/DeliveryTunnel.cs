@@ -6,6 +6,7 @@ using TMPro;
 
 public class DeliveryTunnel : InteractiveObj
 {
+    public coffee_bean_console coffeeBeanConsole;
     public GameObject tunnelExit;
 
     [SerializeField] GameObject UIContainer;
@@ -13,6 +14,8 @@ public class DeliveryTunnel : InteractiveObj
 
     private PlayerBackpack playerBackpack;
     private StateManager state;
+
+    public bool sentRobot;
     void Start()
     {
         playerBackpack = FindObjectOfType<PlayerBackpack>();
@@ -29,7 +32,7 @@ public class DeliveryTunnel : InteractiveObj
     {
         state.transitionState(State.UI);
         UIContainer.SetActive(true);
-        if (playerBackpack.contains("maintenance robot"))
+        if (playerBackpack.contains("maintenance robot") && coffeeBeanConsole.isCoverUp)
             description.text = "send maintenance robot through this tunnel";
         else
             description.text = "this is the tunnel for coffee beans";
@@ -43,13 +46,12 @@ public class DeliveryTunnel : InteractiveObj
 
     public void confirm()
     {
-        if (playerBackpack.contains("maintenance robot"))
+        if (playerBackpack.contains("maintenance robot") && coffeeBeanConsole.isCoverUp)
         {
             GameObject robot = playerBackpack.remove("maintenance robot");
             if (robot != null)
             {
-                robot.transform.position = new Vector3(tunnelExit.transform.position.x, tunnelExit.transform.position.y, 42);
-                robot.SetActive(true);
+                sentRobot = true;
             }
         }
         UIContainer.SetActive(false);

@@ -7,6 +7,8 @@ public class coffee_bean_console : InteractiveObj
     // Start is called before the first frame update
     public GameObject coffee_cover;
     Animator m_Animator;
+
+    public bool isCoverUp;
     void Start()
     {
         m_Animator = coffee_cover.GetComponent<Animator>();
@@ -23,10 +25,12 @@ public class coffee_bean_console : InteractiveObj
         if (m_Animator.GetCurrentAnimatorStateInfo(0).IsName("coffee_stay_down")) //&& m_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f)
         {
             m_Animator.Play("coffee_go_up");
+            isCoverUp = true;
         }
         if (m_Animator.GetCurrentAnimatorStateInfo(0).IsName("stay_up")) //&& m_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f)
         {
             m_Animator.Play("coffee_go_down");
+            isCoverUp = false;
         }
     }
 }
